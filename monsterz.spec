@@ -7,7 +7,6 @@ Group:		Games/Puzzles
 Summary:    A little addictive puzzle game
 Source:     http://sam.zoy.org/projects/monsterz/%{name}-%{version}.tar.bz2
 Url:        http://sam.zoy.org/projects/monsterz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   pygame
 BuildArch:  noarch 
 BuildRequires: ImageMagick
