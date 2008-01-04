@@ -1,6 +1,6 @@
 Name:		monsterz
-Version: 0.7.0
-Release:    %mkrel 2
+Version: 0.7.1
+Release:    %mkrel 1
 # in reality, this is the DWYF license..
 License:	Freeware
 Group:		Games/Puzzles
@@ -9,23 +9,23 @@ Source:     http://sam.zoy.org/projects/monsterz/%{name}-%{version}.tar.bz2
 Url:        http://sam.zoy.org/projects/monsterz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   pygame
-BuildArch:  noarch 
+BuildArch:  noarch
 BuildRequires: ImageMagick
 
 %description
 Monsterz is a little puzzle game, similar to the famous Bejeweled or Zookeeper.
 
-The goal of the game is to create rows of similar monsters, either horizontally 
-or vertically. The only allowed move is the swap of two adjacent monsters, on 
-the condition that it creates a row of three or more. When alignments are 
-cleared, pieces fall from the top of the screen to fill the board again. Chain 
+The goal of the game is to create rows of similar monsters, either horizontally
+or vertically. The only allowed move is the swap of two adjacent monsters, on
+the condition that it creates a row of three or more. When alignments are
+cleared, pieces fall from the top of the screen to fill the board again. Chain
 reactions earn you even more points.
 
-This game is mostly about luck, but it remains highly addictive. You have been 
-warned. 
+This game is mostly about luck, but it remains highly addictive. You have been
+warned.
 
 %prep
-%setup -q 
+%setup -q
 
 %build
 
@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS COPYING INSTALL README TODO 
+%doc AUTHORS COPYING INSTALL README TODO
 %{_gamesdatadir}/%{name}/
 %{_gamesbindir}/%{name}
 %_datadir/applications/mandriva*
