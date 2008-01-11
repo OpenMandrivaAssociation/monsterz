@@ -43,15 +43,7 @@ EOF
 
 chmod 755 $RPM_BUILD_ROOT/%{_gamesbindir}/%{name}
 
-mkdir -p $RPM_BUILD_ROOT/%{_menudir}/
 
-cat > %buildroot/%_menudir/%name << EOF
-?package(%{name}): needs=x11 \
-icon="%{name}.png" \
-section="More Applications/Games/Puzzles" \
-title=Monsterz longtitle="Addictive puzzle game" \
-command="%{_gamesbindir}/%{name}" xdg="true"
-EOF
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -86,7 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_gamesdatadir}/%{name}/
 %{_gamesbindir}/%{name}
 %_datadir/applications/mandriva*
-%{_menudir}/%{name}
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
