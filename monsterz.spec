@@ -1,11 +1,12 @@
 Name:		monsterz
 Version: 0.7.1
-Release:    %mkrel 3
+Release:    %mkrel 4
 # in reality, this is the DWYF license..
 License:	Freeware
 Group:		Games/Puzzles
 Summary:    A little addictive puzzle game
 Source:     http://sam.zoy.org/projects/monsterz/%{name}-%{version}.tar.bz2
+Patch:      monsterz-fix-crash-x86_64.patch
 Url:        http://sam.zoy.org/projects/monsterz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   pygame
@@ -26,6 +27,7 @@ warned.
 
 %prep
 %setup -q
+%patch -p0
 
 %build
 
