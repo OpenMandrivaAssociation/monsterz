@@ -11,7 +11,7 @@ Url:        http://sam.zoy.org/projects/monsterz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   pygame
 BuildArch:  noarch
-BuildRequires: ImageMagick
+BuildRequires: imagemagick
 
 %description
 Monsterz is a little puzzle game, similar to the famous Bejeweled or Zookeeper.
