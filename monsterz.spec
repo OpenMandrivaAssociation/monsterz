@@ -1,12 +1,16 @@
 Name:		monsterz
 Version: 0.7.1
-Release:    %mkrel 4
+Release:    %mkrel 5
 # in reality, this is the DWYF license..
 License:	Freeware
 Group:		Games/Puzzles
 Summary:    A little addictive puzzle game
 Source:     http://sam.zoy.org/projects/monsterz/%{name}-%{version}.tar.bz2
+#gw Debian man page
+Source1:    monsterz.1
 Patch:      monsterz-fix-crash-x86_64.patch
+#gw from Debian, fix crash on start (bug #49431)
+Patch1:	    020_fix_blit_crash.diff
 Url:        http://sam.zoy.org/projects/monsterz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   pygame
@@ -28,6 +32,7 @@ warned.
 %prep
 %setup -q
 %patch -p0
+%patch1 -p1
 
 %build
 
@@ -56,7 +61,7 @@ Icon=%name
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=X-MandrivaLinux-MoreApplications-Games-Puzzles;Game;BlocksGame;
+Categories=Game;BlocksGame;
 EOF
 
 mkdir -p $RPM_BUILD_ROOT{%{_miconsdir},%{_iconsdir},%{_liconsdir}}/
@@ -64,6 +69,7 @@ convert -geometry 16x16 graphics/icon.png $RPM_BUILD_ROOT%{_miconsdir}/%{name}.p
 convert -geometry 32x32 graphics/icon.png $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 convert -geometry 48x48 graphics/icon.png $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
+install -D %SOURCE1 %buildroot%_mandir/man6/%name.6
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,9 +77,6 @@ rm -rf $RPM_BUILD_ROOT
 %if %mdkversion < 200900
 %post
 %{update_menus}
-%endif
-
-%if %mdkversion < 200900
 %postun
 %{update_menus}
 %endif
@@ -83,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING INSTALL README TODO
 %{_gamesdatadir}/%{name}/
 %{_gamesbindir}/%{name}
+%_mandir/man6/%name.6*
 %_datadir/applications/mandriva*
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
