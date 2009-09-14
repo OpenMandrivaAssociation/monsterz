@@ -1,6 +1,6 @@
 Name:		monsterz
 Version: 0.7.1
-Release:    %mkrel 5
+Release:    %mkrel 6
 # in reality, this is the DWYF license..
 License:	Freeware
 Group:		Games/Puzzles
