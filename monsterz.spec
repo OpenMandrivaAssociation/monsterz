@@ -11,7 +11,7 @@ Source1:    monsterz.1
 Patch:      monsterz-fix-crash-x86_64.patch
 #gw from Debian, fix crash on start (bug #49431)
 Patch1:	    020_fix_blit_crash.diff
-Url:        http://sam.zoy.org/projects/monsterz
+Url:        https://sam.zoy.org/projects/monsterz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   pygame
 BuildArch:  noarch
